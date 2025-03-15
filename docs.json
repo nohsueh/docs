@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "mint",
   "name": "Searchlysis Docs",
   "colors": {
     "primary": "#3b82f6",
@@ -16,8 +16,7 @@
       },
       {
         "group": "API Reference",
-        "openapi": ["/api-reference/openapi.json"],
-        "hidden": false
+        "openapi": ["/api-reference/openapi.json"]
       }
     ]
   },
