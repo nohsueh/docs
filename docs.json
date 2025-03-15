@@ -17,11 +17,11 @@
       {
         "group": "API Reference",
         "pages": [
-          "api-reference/introduction",
-          "api-reference/endpoint/analyze-search",
-          "api-reference/endpoint/analyze-links",
-          "api-reference/endpoint/get-analysis",
-          "api-reference/endpoint/list-analyses"
+          "/api-reference/introduction",
+          "/api-reference/endpoint/analyze-search",
+          "/api-reference/endpoint/analyze-links",
+          "/api-reference/endpoint/get-analysis",
+          "/api-reference/endpoint/list-analyses"
         ]
       }
     ]
