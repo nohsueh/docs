@@ -18,10 +18,10 @@
         "group": "API Reference",
         "pages": [
           "api-reference/introduction",
-          "api-reference/endpoint/get",
-          "api-reference/endpoint/create",
-          "api-reference/endpoint/delete",
-          "api-reference/endpoint/webhook"
+          "api-reference/endpoint/analyze-search",
+          "api-reference/endpoint/analyze-links",
+          "api-reference/endpoint/get-analysis",
+          "api-reference/endpoint/list-analyses"
         ]
       }
     ]
