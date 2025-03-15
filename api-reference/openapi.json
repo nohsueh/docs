@@ -13,6 +13,8 @@
     "paths": {
       "/v1/search": {
         "post": {
+          "summary": "Analyze search",
+          "operationId": "analyze-search",
           "requestBody": {
             "content": {
               "application/json": {
@@ -59,6 +61,8 @@
       },
       "/v1/links": {
         "post": {
+          "summary": "Analyze links",
+          "operationId": "analyze-links",
           "requestBody": {
             "content": {
               "application/json": {
@@ -111,6 +115,34 @@
       },
       "/analyses": {
         "get": {
+          "summary": "Get analysis",
+          "operationId": "get-analysis",
+          "parameters": [
+            {
+              "name": "tags",
+              "in": "query",
+              "description": "Tags to filter by",
+              "required": false,
+              "explode": true,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation"
+            }
+          }
+        }
+      },
+      "/analyses/list": {
+        "get": {
+          "summary": "List analyses",
+          "operationId": "list-analyses",
           "parameters": [
             {
               "name": "tags",
