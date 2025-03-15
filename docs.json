@@ -15,11 +15,12 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["overview", "quickstart"]
+            "pages": ["overview", "quickstart"],
           },
           {
             "group": "API Reference",
-            "openapi": ["/api-reference/openapi.json"]
+            "openapi": ["/api-reference/openapi.json"],
+            "hidden": false
           }
         ]
       },
