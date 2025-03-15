@@ -16,14 +16,7 @@
       },
       {
         "group": "API Reference",
-        "openapi": "https://searchlysis.com/api/v1/openapi.json",
-        "pages": [
-          "api-reference/introduction",
-          "api-reference/endpoint/analyze-search",
-          "api-reference/endpoint/analyze-links",
-          "api-reference/endpoint/get-analysis",
-          "api-reference/endpoint/list-analyses"
-        ]
+        "openapi": "https://searchlysis.com/api/v1/openapi.json"
       }
     ]
   },
