@@ -56,22 +56,13 @@ curl --location 'https://searchlysis.com/api/v1/links' \
 #### `/v1/analyses`
 
 ```sh
-curl --location --request GET 'https://searchlysis.com/api/v1/analyses' \
---header 'Content-Type: application/json' \
---header 'x-api-key: sk_123456789' \
---data '{
-    "id": "analysis_123456789"
-}'
+curl --location 'https://searchlysis.com/api/v1/analyses?id=analysis_1234567' \
+--header 'x-api-key: sk_123456789'
 ```
 
 #### `/v1/analyses/list`
 
 ```sh
-curl --location --request GET 'https://searchlysis.com/api/v1/analyses/list' \
---header 'Content-Type: application/json' \
---header 'x-api-key: sk_123456789' \
---data '{
-    "page_number": 1,
-    "page_size": 10
-}'
+curl --location 'https://searchlysis.com/api/v1/analyses/list?page_num=1&page_size=10' \
+--header 'x-api-key: sk_123456789'
 ```
