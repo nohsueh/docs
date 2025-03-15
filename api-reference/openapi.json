@@ -113,7 +113,7 @@
         ]
       }
     },
-    "v1/analyses": {
+    "/v1/analyses": {
       "get": {
         "summary": "Get analysis",
         "operationId": "get-analysis",
@@ -139,7 +139,7 @@
         }
       }
     },
-    "v1/analyses/list": {
+    "/v1/analyses/list": {
       "get": {
         "summary": "List analyses",
         "operationId": "list-analyses",
