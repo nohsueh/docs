@@ -33,50 +33,208 @@ https://searchlysis.com/api
 
 <CodeGroup>
 
-``` filename
+```bash cURL
 curl --location 'https://searchlysis.com/api/v1/search' \
---header 'Content-Type: application/json' \
 --header 'x-api-key: sk_123456789' \
+--header 'Content-Type: application/json' \
 --data '{
     "query": "Searchlysis",
     "prompt": "Summarize it"
 }'
+```
+
+
+```javascript JavaScript
+var myHeaders = new Headers();
+myHeaders.append("x-api-key", "sk_123456789");
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "query": "Searchlysis",
+  "prompt": "Summarize it"
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://searchlysis.com/api/v1/search", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+```
+
+
+```python Python
+import requests
+import json
+
+url = "https://searchlysis.com/api/v1/search"
+
+payload = json.dumps({
+  "query": "Searchlysis",
+  "prompt": "Summarize it"
+})
+headers = {
+  'x-api-key': 'sk_123456789',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
 ```
 
 </CodeGroup>
 
-``` curl [expandable]
-curl --location 'https://searchlysis.com/api/v1/search' \
---header 'Content-Type: application/json' \
---header 'x-api-key: sk_123456789' \
---data '{
-    "query": "Searchlysis",
-    "prompt": "Summarize it"
-}'
-```
-
 #### `/v1/links`
 
-```sh
+<CodeGroup>
+
+```bash cURL
 curl --location 'https://searchlysis.com/api/v1/links' \
---header 'Content-Type: application/json' \
 --header 'x-api-key: sk_123456789' \
+--header 'Content-Type: application/json' \
 --data '{
     "link": "https://searchlysis.com",
     "prompt": "Summarize it"
 }'
 ```
 
+
+```javascript JavaScript
+var myHeaders = new Headers();
+myHeaders.append("x-api-key", "sk_123456789");
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "link": "https://searchlysis.com",
+  "prompt": "Summarize it"
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://searchlysis.com/api/v1/links", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+```
+
+
+```python Python
+import requests
+import json
+
+url = "https://searchlysis.com/api/v1/links"
+
+payload = json.dumps({
+  "link": "https://searchlysis.com",
+  "prompt": "Summarize it"
+})
+headers = {
+  'x-api-key': 'sk_123456789',
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+</CodeGroup>
+
 #### `/v1/analyses`
 
-```sh
-curl --location 'https://searchlysis.com/api/v1/analyses?id=analysis_1234567' \
+<CodeGroup>
+
+```bash cURL
+curl --location 'https://searchlysis.com/api/v1/analyses?id=analysis_123456789' \
 --header 'x-api-key: sk_123456789'
 ```
+
+
+``` JavaScript
+var myHeaders = new Headers();
+myHeaders.append("x-api-key", "sk_123456789");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://searchlysis.com/api/v1/analyses?id=analysis_123456789", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+```
+
+
+``` Python
+import requests
+
+url = "https://searchlysis.com/api/v1/analyses?id=analysis_123456789"
+
+payload = {}
+headers = {
+  'x-api-key': 'sk_123456789'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+</CodeGroup>
 
 #### `/v1/analyses/list`
 
-```sh
+<CodeGroup>
+
+```bash cURL
 curl --location 'https://searchlysis.com/api/v1/analyses/list?page_num=1&page_size=10' \
 --header 'x-api-key: sk_123456789'
 ```
+
+
+```javascript JavaScript
+var myHeaders = new Headers();
+myHeaders.append("x-api-key", "sk_123456789");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://searchlysis.com/api/v1/analyses/list?page_num=1&page_size=10", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+```
+
+
+```python Python
+import requests
+
+url = "https://searchlysis.com/api/v1/analyses/list?page_num=1&page_size=10"
+
+payload = {}
+headers = {
+  'x-api-key': 'sk_123456789'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+</CodeGroup>
