@@ -16,7 +16,12 @@
       },
       {
         "group": "API Reference",
-        "pages": ["api-reference/endpoint/analyze-search"]
+        "pages": [
+          "api-reference/endpoint/analyze-search",
+          "api-reference/endpoint/analyze-links",
+          "api-reference/endpoint/get-analysis",
+          "api-reference/endpoint/list-analyses"
+        ]
       }
     ]
   },
