@@ -31,7 +31,21 @@ https://searchlysis.com/api
 
 #### `/v1/search`
 
-```sh
+<CodeGroup>
+
+``` filename
+curl --location 'https://searchlysis.com/api/v1/search' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: sk_123456789' \
+--data '{
+    "query": "Searchlysis",
+    "prompt": "Summarize it"
+}'
+```
+
+</CodeGroup>
+
+``` curl [expandable]
 curl --location 'https://searchlysis.com/api/v1/search' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: sk_123456789' \
