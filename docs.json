@@ -9,14 +9,19 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Get Started",
-        "pages": ["overview", "quickstart"]
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["overview", "quickstart"]
+          }
+        ]
       },
       {
-        "group": "API Reference",
-        "openapi": "/api-reference/openapi.json"
+        "tab": "API Reference",
+        "openapi": ["/api-reference/openapi.json"]
       }
     ]
   },
