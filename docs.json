@@ -15,7 +15,7 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["overview", "quickstart"],
+            "pages": ["overview", "quickstart"]
           },
           {
             "group": "API Reference",
