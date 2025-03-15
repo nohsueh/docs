@@ -13,25 +13,21 @@ Get your [API key](https://searchlysis.com/key).
 
 ### Base URL
 
-```txt
+```
 https://searchlysis.com/api
 ```
 
 ### Authentication
 
-```json API Key
-{
-  "headers": {
-    "x-api-key": "sk_123456789"
-  }
-}
+```API Key
+--header 'x-api-key: sk_123456789'
 ```
 
 ### Endpoints
 
 #### `/v1/search`
 
-<RequestExample>
+<CodeGroup>
 
 ```bash cURL
 curl --location 'https://searchlysis.com/api/v1/search' \
@@ -88,11 +84,11 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-</RequestExample>
+</CodeGroup>
 
 #### `/v1/links`
 
-<RequestExample>
+<CodeGroup>
 
 ```bash cURL
 curl --location 'https://searchlysis.com/api/v1/links' \
@@ -149,11 +145,11 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-</RequestExample>
+</CodeGroup>
 
 #### `/v1/analyses`
 
-<RequestExample>
+<CodeGroup>
 
 ```bash cURL
 curl --location 'https://searchlysis.com/api/v1/analyses?id=analysis_123456789' \
@@ -193,11 +189,11 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-</RequestExample>
+</CodeGroup>
 
 #### `/v1/analyses/list`
 
-<RequestExample>
+<CodeGroup>
 
 ```bash cURL
 curl --location 'https://searchlysis.com/api/v1/analyses/list?page_num=1&page_size=10' \
@@ -237,4 +233,4 @@ response = requests.request("GET", url, headers=headers, data=payload)
 print(response.text)
 ```
 
-</RequestExample>
+</CodeGroup>
