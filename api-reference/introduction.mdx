@@ -18,69 +18,12 @@ https://searchlysis.com/api
 
 ### Authentication
 
-```API Key
---header 'x-api-key: sk_123456789'
-```
+To authenticate you need to add an `x-api-key` header with the contents of the header being your API Key. All API endpoints are authenticated using Api Keys and picked up from the specification file.
 
-### Endpoints
-
-#### `/v1/search`
-
-<CodeGroup>
-
-```bash cURL
-curl --location 'https://searchlysis.com/api/v1/search' \
---header 'x-api-key: sk_123456789' \
---header 'Content-Type: application/json' \
---data '{
-    "query": "Searchlysis",
-    "prompt": "Summarize it"
-}'
-```
-
-
-```javascript JavaScript
-var myHeaders = new Headers();
-myHeaders.append("x-api-key", "sk_123456789");
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "query": "Searchlysis",
-  "prompt": "Summarize it"
-});
-
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
-
-fetch("https://searchlysis.com/api/v1/search", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-```
-
-
-```python Python
-import requests
-import json
-
-url = "https://searchlysis.com/api/v1/search"
-
-payload = json.dumps({
-  "query": "Searchlysis",
-  "prompt": "Summarize it"
-})
-headers = {
-  'x-api-key': 'sk_123456789',
-  'Content-Type': 'application/json'
+```json API Key
+{
+  headers: {
+    "x-api-key": "sk_123456789"
+  }
 }
-
-response = requests.request("POST", url, headers=headers, data=payload)
-
-print(response.text)
 ```
-
-</CodeGroup>
