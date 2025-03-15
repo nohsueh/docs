@@ -17,6 +17,7 @@
       {
         "group": "API Reference",
         "pages": [
+          "api-reference/introduction",
           "api-reference/endpoint/analyze-search",
           "api-reference/endpoint/analyze-links",
           "api-reference/endpoint/get-analysis",
