@@ -16,7 +16,7 @@
       },
       {
         "group": "API Reference",
-        "openapi": "https://searchlysis.com/api/v1/openapi.json"
+        "openapi": "/api-reference/openapi.json"
       }
     ]
   },
