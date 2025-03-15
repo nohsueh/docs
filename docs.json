@@ -16,6 +16,10 @@
           {
             "group": "Get Started",
             "pages": ["overview", "quickstart"]
+          },
+          {
+            "group": "API Reference",
+            "openapi": ["/api-reference/openapi.json"]
           }
         ]
       },
