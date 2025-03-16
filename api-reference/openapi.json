@@ -92,7 +92,6 @@
             "in": "query",
             "description": "Tags to filter by",
             "required": false,
-            "explode": true,
             "schema": {
               "type": "array",
               "items": {
@@ -123,7 +122,6 @@
             "in": "query",
             "description": "Tags to filter by",
             "required": false,
-            "explode": true,
             "schema": {
               "type": "array",
               "items": {
@@ -194,7 +192,6 @@
             "in": "query",
             "description": "Status values that need to be considered for filter",
             "required": false,
-            "explode": true,
             "schema": {
               "type": "string",
               "default": "available",
