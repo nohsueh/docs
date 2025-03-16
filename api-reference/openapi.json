@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Searchlysis API Reference",
     "version": "1.0.0"
@@ -196,17 +196,8 @@
             "$ref": "#/components/schemas/Metadata"
           },
           "link": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
+            "type": ["string", "array"],
+            "description": "String URL or Array of URLs to crawl"
           },
           "prompt": {
             "type": "string"
