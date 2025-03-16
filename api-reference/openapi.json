@@ -92,7 +92,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalysisResult"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -128,7 +135,17 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AnalysisResult"
+                  }
+                }
+              }
+            }
           }
         },
         "security": [
@@ -142,10 +159,7 @@
   "components": {
     "schemas": {
       "AnalyzeSearchParams": {
-        "required": [
-          "query",
-          "temperature"
-        ],
+        "required": ["query", "prompt"],
         "type": "object",
         "properties": {
           "metadata": {
@@ -171,10 +185,7 @@
         }
       },
       "AnalyzeLinkParams": {
-        "required": [
-          "link",
-          "prompt"
-        ],
+        "required": ["link", "prompt"],
         "type": "object",
         "properties": {
           "metadata": {
@@ -205,11 +216,7 @@
         }
       },
       "AnalyzeResults": {
-        "required": [
-          "usageId",
-          "costCredits",
-          "results"
-        ],
+        "required": ["usageId", "costCredits", "results"],
         "type": "object",
         "properties": {
           "usageId": {
@@ -230,12 +237,7 @@
         }
       },
       "AnalyzeResultObject": {
-        "required": [
-          "analysisId",
-          "createdAt",
-          "updatedAt",
-          "analysis"
-        ],
+        "required": ["analysisId", "createdAt", "updatedAt", "analysis"],
         "type": "object",
         "properties": {
           "analysisId": {
@@ -253,12 +255,7 @@
         }
       },
       "AnalyzeAnalysisObject": {
-        "required": [
-          "title",
-          "url",
-          "id",
-          "text"
-        ],
+        "required": ["title", "url", "id", "text"],
         "type": "object",
         "properties": {
           "title": {
@@ -290,6 +287,27 @@
           },
           "content": {
             "type": "string"
+          }
+        }
+      },
+      "AnalysisResult": {
+        "required": ["createdAt", "updatedAt", "analysisId", "analysis"],
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "analysisId": {
+            "type": "string"
+          },
+          "analysis": {
+            "type": "object"
+          },
+          "metadata": {
+            "type": "object"
           }
         }
       }
