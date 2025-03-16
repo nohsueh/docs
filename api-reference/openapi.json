@@ -18,7 +18,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pet"
+                "$ref": "#/components/schemas/AnalyzeSearchParams"
               }
             }
           },
@@ -30,7 +30,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Pet"
+                  "$ref": "#/components/schemas/AnalyzeResults"
                 }
               }
             }
@@ -51,7 +51,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pet"
+                "$ref": "#/components/schemas/AnalyzeLinkParams"
               }
             }
           },
@@ -63,16 +63,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Pet"
+                  "$ref": "#/components/schemas/AnalyzeResults"
                 }
               }
             }
-          },
-          "400": {
-            "description": "Invalid input"
-          },
-          "422": {
-            "description": "Validation exception"
           }
         },
         "security": [
@@ -88,15 +82,11 @@
         "operationId": "get-analysis",
         "parameters": [
           {
-            "name": "tags",
+            "name": "analysisId",
             "in": "query",
-            "description": "Tags to filter by",
-            "required": false,
+            "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "string"
             }
           }
         ],
@@ -118,15 +108,21 @@
         "operationId": "list-analyses",
         "parameters": [
           {
-            "name": "tags",
+            "name": "pageNum",
             "in": "query",
-            "description": "Tags to filter by",
             "required": false,
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
             }
           }
         ],
@@ -141,226 +137,159 @@
           }
         ]
       }
-    },
-    "/pet/findByStatus": {
-      "post": {
-        "summary": "Add a new pet to the store",
-        "description": "Add a new pet to the store",
-        "operationId": "addPet",
-        "requestBody": {
-          "description": "Create a new pet in the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Pet"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid input"
-          },
-          "422": {
-            "description": "Validation exception"
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
-      },
-      "get": {
-        "summary": "Finds Pets by status",
-        "description": "Multiple status values can be provided with comma separated strings",
-        "operationId": "findPetsByStatus",
-        "parameters": [
-          {
-            "name": "status",
-            "in": "query",
-            "description": "Status values that need to be considered for filter",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "default": "available",
-              "enum": [
-                "available",
-                "pending",
-                "sold"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Pet"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid status value"
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
-      }
     }
   },
   "components": {
     "schemas": {
-      "Category": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "example": "Dogs"
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 10
-          },
-          "username": {
-            "type": "string",
-            "example": "theUser"
-          },
-          "firstName": {
-            "type": "string",
-            "example": "John"
-          },
-          "lastName": {
-            "type": "string",
-            "example": "James"
-          },
-          "email": {
-            "type": "string",
-            "example": "john@email.com"
-          },
-          "password": {
-            "type": "string",
-            "example": "12345"
-          },
-          "phone": {
-            "type": "string",
-            "example": "12345"
-          },
-          "userStatus": {
-            "type": "integer",
-            "description": "User Status",
-            "format": "int32",
-            "example": 1
-          }
-        }
-      },
-      "Tag": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "Pet": {
+      "AnalyzeSearchParams": {
         "required": [
-          "name",
-          "photoUrls"
+          "query",
+          "temperature"
         ],
         "type": "object",
         "properties": {
-          "id": {
+          "metadata": {
+            "type": "object"
+          },
+          "query": {
+            "type": "string"
+          },
+          "num": {
             "type": "integer",
-            "format": "int64",
-            "example": 10
+            "example": 10,
+            "minimum": 1
           },
-          "name": {
-            "type": "string",
-            "example": "doggie"
+          "prompt": {
+            "type": "string"
           },
-          "category": {
-            "$ref": "#/components/schemas/Category"
-          },
-          "photoUrls": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
-          },
-          "status": {
-            "type": "string",
-            "description": "pet status in the store",
-            "enum": [
-              "available",
-              "pending",
-              "sold"
-            ]
+          "temperature": {
+            "type": "number",
+            "example": 0.8,
+            "minimum": 0,
+            "maximum": 2
           }
         }
-      }
-    },
-    "requestBodies": {
-      "Pet": {
-        "description": "Pet object that needs to be added to the store",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Pet"
+      },
+      "AnalyzeLinkParams": {
+        "required": [
+          "link",
+          "prompt"
+        ],
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "type": "object"
+          },
+          "link": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "temperature": {
+            "type": "number",
+            "example": 0.8,
+            "minimum": 0,
+            "maximum": 2
+          }
+        }
+      },
+      "AnalyzeResults": {
+        "required": [
+          "usageId",
+          "costCredits",
+          "results"
+        ],
+        "type": "object",
+        "properties": {
+          "usageId": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object"
+          },
+          "costCredits": {
+            "type": "integer"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnalyzeResultObject"
             }
           }
         }
       },
-      "UserArray": {
-        "description": "List of user object",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
+      "AnalyzeResultObject": {
+        "required": [
+          "analysisId",
+          "createdAt",
+          "updatedAt",
+          "analysis"
+        ],
+        "type": "object",
+        "properties": {
+          "analysisId": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "analysis": {
+            "$ref": "#/components/schemas/AnalyzeAnalysisObject"
+          }
+        }
+      },
+      "AnalyzeAnalysisObject": {
+        "required": [
+          "title",
+          "url",
+          "id",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "publishedDate": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "id": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "favicon": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
           }
         }
       }
