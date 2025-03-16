@@ -315,8 +315,8 @@
         }
       },
       "Metadata": {
-        "type": "object",
-        "description": "User defined metadata for analysis request"
+        "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+        "type": "object"
       }
     },
     "securitySchemes": {
