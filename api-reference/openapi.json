@@ -258,7 +258,7 @@
         }
       },
       "AnalyzeAnalysisObject": {
-        "required": ["title", "url", "id", "text"],
+        "required": ["title", "url", "id", "text", "content"],
         "type": "object",
         "properties": {
           "title": {
@@ -286,10 +286,12 @@
             "type": "string"
           },
           "text": {
-            "type": "string"
+            "type": "string",
+            "description": "The full content text of the search result."
           },
           "content": {
-            "type": "string"
+            "type": "string",
+            "description": "The LLM generated content of the search result based on the prompt and text."
           }
         }
       },
