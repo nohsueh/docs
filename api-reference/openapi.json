@@ -120,7 +120,8 @@
             "required": false,
             "schema": {
               "type": "integer",
-              "minimum": 1
+              "minimum": 1,
+              "default": 1
             }
           },
           {
@@ -129,7 +130,8 @@
             "required": false,
             "schema": {
               "type": "integer",
-              "minimum": 1
+              "minimum": 1,
+              "default": 10
             }
           }
         ],
@@ -163,7 +165,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "type": "object"
+            "$ref": "#/components/schemas/Metadata"
           },
           "query": {
             "type": "string"
@@ -171,7 +173,8 @@
           "num": {
             "type": "integer",
             "example": 10,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "prompt": {
             "type": "string"
@@ -189,7 +192,7 @@
         "type": "object",
         "properties": {
           "metadata": {
-            "type": "object"
+            "$ref": "#/components/schemas/Metadata"
           },
           "link": {
             "oneOf": [
@@ -223,7 +226,7 @@
             "type": "string"
           },
           "metadata": {
-            "type": "object"
+            "$ref": "#/components/schemas/Metadata"
           },
           "costCredits": {
             "type": "integer"
@@ -304,12 +307,16 @@
             "type": "string"
           },
           "analysis": {
-            "type": "object"
+            "$ref": "#/components/schemas/AnalyzeAnalysisObject"
           },
           "metadata": {
-            "type": "object"
+            "$ref": "#/components/schemas/Metadata"
           }
         }
+      },
+      "Metadata": {
+        "type": "object",
+        "description": "User defined metadata for analysis request"
       }
     },
     "securitySchemes": {
