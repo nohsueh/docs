@@ -196,8 +196,18 @@
             "$ref": "#/components/schemas/Metadata"
           },
           "link": {
-            "type": ["string", "array"],
-            "description": "String URL or Array of URLs to crawl"
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "Array of links(URLs that start with https) to analyze"
           },
           "prompt": {
             "type": "string"
