@@ -168,23 +168,27 @@
             "$ref": "#/components/schemas/Metadata"
           },
           "query": {
-            "type": "string"
+            "type": "string",
+            "description": "The query string for the search.",
+            "examples": ["searchlysis", "site:searchlysis.com"]
           },
           "num": {
             "type": "integer",
-            "example": 10,
+            "examples": [10],
             "minimum": 1,
             "maximum": 100,
-            "default": 10
+            "default": 10,
+            "description": "Number of results to return (up to thousands of results available for custom plans)"
           },
           "prompt": {
             "type": "string"
           },
           "temperature": {
             "type": "number",
-            "example": 0.8,
+            "examples": [0.8],
             "minimum": 0,
-            "maximum": 2
+            "maximum": 2,
+            "description": "Sampling temperature (range: [0, 2])."
           }
         }
       },
@@ -214,9 +218,10 @@
           },
           "temperature": {
             "type": "number",
-            "example": 0.8,
+            "examples": [0.8],
             "minimum": 0,
-            "maximum": 2
+            "maximum": 2,
+            "description": "Sampling temperature (range: [0, 2])."
           }
         }
       },
@@ -231,7 +236,8 @@
             "$ref": "#/components/schemas/Metadata"
           },
           "costCredits": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Total credits cost for your request"
           },
           "results": {
             "type": "array",
