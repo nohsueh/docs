@@ -171,7 +171,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null"
+              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+              "examples": ["{\"key\":\"value\"}"]
             }
           }
         ],
