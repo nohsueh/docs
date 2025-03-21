@@ -111,16 +111,16 @@
       "post": {
         "summary": "Update analysis",
         "operationId": "update-analysis",
-        "parameters": [
-          {
-            "name": "analysisId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAnalysisParams"
+              }
             }
-          }
-        ],
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "Successful operation",
