@@ -164,6 +164,15 @@
               "minimum": 1,
               "default": 10
             }
+          },
+          {
+            "name": "metadata",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null"
+            }
           }
         ],
         "responses": {
@@ -370,13 +379,13 @@
           }
         }
       },
+      "Content": {
+        "description": "The LLM generated content of the search result based on the prompt and text.",
+        "type": "string"
+      },
       "Metadata": {
         "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
         "type": "object"
-      },
-      "Content": {
-        "type": "string",
-        "description": "The LLM generated content of the search result based on the prompt and text."
       }
     },
     "securitySchemes": {
