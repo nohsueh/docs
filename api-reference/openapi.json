@@ -107,6 +107,37 @@
             "api_key": []
           }
         ]
+      },
+      "post": {
+        "summary": "Update analysis",
+        "operationId": "update-analysis",
+        "parameters": [
+          {
+            "name": "analysisId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalysisResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/v1/analyses/list": {
@@ -324,9 +355,28 @@
           }
         }
       },
+      "UpdateAnalysisParams": {
+        "required": ["analysisId"],
+        "type": "object",
+        "properties": {
+          "analysisId": {
+            "type": "string"
+          },
+          "content": {
+            "$ref": "#/components/schemas/Content"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          }
+        }
+      },
       "Metadata": {
         "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
         "type": "object"
+      },
+      "Content": {
+        "type": "string",
+        "description": "The LLM generated content of the search result based on the prompt and text."
       }
     },
     "securitySchemes": {
