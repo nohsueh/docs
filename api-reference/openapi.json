@@ -133,14 +133,6 @@
               "minimum": 1,
               "default": 10
             }
-          },
-          {
-            "name": "metadata",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/Metadata"
-            }
           }
         ],
         "responses": {
