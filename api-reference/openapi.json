@@ -197,6 +197,42 @@
           }
         ]
       }
+    },
+    "/v1/analyses/count": {
+      "get": {
+        "summary": "Count analyses",
+        "operationId": "count-analyses",
+        "parameters": [
+          {
+            "name": "metadata",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+              "examples": ["{\"key\":\"value\"}"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "description": "Number of analyses"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
     }
   },
   "components": {
