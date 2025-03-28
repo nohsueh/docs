@@ -21,9 +21,9 @@
           "/api-reference/endpoint/analyze-search",
           "/api-reference/endpoint/analyze-links",
           "/api-reference/endpoint/get-analysis",
-          "/api-reference/endpoint/update-analysis",
           "/api-reference/endpoint/list-analyses",
-          "/api-reference/endpoint/count-analyses"
+          "/api-reference/endpoint/count-analyses",
+          "/api-reference/endpoint/update-analysis"
         ]
       }
     ]
