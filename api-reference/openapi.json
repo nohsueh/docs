@@ -234,6 +234,43 @@
           }
         ]
       }
+    },
+    "/v1/analyses/delete": {
+      "post": {
+        "summary": "Delete analysis",
+        "operationId": "delete-analysis",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "description": "Analysis id to delete",
+                "examples": ["a_123"]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean",
+                  "description": "Analysis deleted",
+                  "examples": [true]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
     }
   },
   "components": {
