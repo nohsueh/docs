@@ -243,7 +243,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GetAnalysisParams"
+                "type": "string",
+                "description": "Analysis id to delete",
+                "examples": ["a_123"]
               }
             }
           },
@@ -292,6 +294,14 @@
             "maximum": 100,
             "default": 10,
             "description": "Number of results to return (up to thousands of results available for custom plans)"
+          },
+          "startPublishedDate": {
+            "type": "string",
+            "description": "Start date for published date filter (2023-01-01T00:00:00.000Z)"
+          },
+          "endPublishedDate": {
+            "type": "string",
+            "description": "End date for published date filter (2023-12-31T00:00:00.000Z)"
           },
           "prompt": {
             "type": "string"
@@ -449,15 +459,6 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/Metadata"
-          }
-        }
-      },
-      "GetAnalysisParams": {
-        "required": ["analysisId"],
-        "type": "object",
-        "properties": {
-          "analysisId": {
-            "type": "string"
           }
         }
       },
