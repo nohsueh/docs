@@ -22,6 +22,7 @@
           "/api-reference/endpoint/analyze-links",
           "/api-reference/endpoint/get-analysis",
           "/api-reference/endpoint/list-analyses",
+          "/api-reference/endpoint/list-analyses-ids",
           "/api-reference/endpoint/count-analyses",
           "/api-reference/endpoint/update-analysis",
           "/api-reference/endpoint/delete-analysis"

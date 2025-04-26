@@ -198,6 +198,64 @@
         ]
       }
     },
+    "/v1/analyses/listIds": {
+      "get": {
+        "summary": "List analyses ids",
+        "operationId": "list-analyses-ids",
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 10
+            }
+          },
+          {
+            "name": "metadata",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+              "examples": ["{\"key\":\"value\"}"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AnalysisResult"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
     "/v1/analyses/count": {
       "get": {
         "summary": "Count analyses",
@@ -243,9 +301,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string",
-                "description": "Analysis id to delete",
-                "examples": ["a_123"]
+                "$ref": "#/components/schemas/GetAnalysisParams"
               }
             }
           },
@@ -427,7 +483,7 @@
         }
       },
       "AnalysisResult": {
-        "required": ["createdAt", "updatedAt", "analysisId", "analysis"],
+        "required": ["createdAt", "updatedAt", "analysisId"],
         "type": "object",
         "properties": {
           "createdAt": {
@@ -459,6 +515,15 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/Metadata"
+          }
+        }
+      },
+      "GetAnalysisParams": {
+        "required": ["analysisId"],
+        "type": "object",
+        "properties": {
+          "analysisId": {
+            "type": "string"
           }
         }
       },
