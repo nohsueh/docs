@@ -256,6 +256,72 @@
         ]
       }
     },
+    "/v1/analyses/related": {
+      "get": {
+        "summary": "List related analyses",
+        "operationId": "list-related-analyses",
+        "parameters": [
+          {
+            "name": "pageNum",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 10
+            }
+          },
+          {
+            "name": "metadata",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+              "examples": ["{\"key\":\"value\"}"]
+            }
+          },
+          {
+            "name": "analysisId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AnalysisResult"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
     "/v1/analyses/count": {
       "get": {
         "summary": "Count analyses",
