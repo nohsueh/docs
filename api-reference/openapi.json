@@ -575,6 +575,9 @@
           "analysis": {
             "$ref": "#/components/schemas/AnalyzeAnalysisObject"
           },
+          "slug": {
+            "type": "string"
+          },
           "metadata": {
             "$ref": "#/components/schemas/Metadata"
           }
