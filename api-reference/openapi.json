@@ -607,8 +607,13 @@
           "analysisId": {
             "type": "string"
           },
-          "content": {
-            "$ref": "#/components/schemas/Content"
+          "textContent": {
+            "type": "string",
+            "description": "The full text of the generated content."
+          },
+          "jsonContent": {
+            "type": "object",
+            "description": "The json object of the generated content."
           },
           "metadata": {
             "$ref": "#/components/schemas/Metadata"
@@ -623,10 +628,6 @@
             "type": "string"
           }
         }
-      },
-      "Content": {
-        "description": "The LLM generated content of the search result based on the prompt and text.",
-        "type": "string"
       },
       "Metadata": {
         "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
