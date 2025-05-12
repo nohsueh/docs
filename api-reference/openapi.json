@@ -560,7 +560,7 @@
         }
       },
       "AnalysisResult": {
-        "required": ["createdAt", "updatedAt", "analysisId"],
+        "required": ["createdAt", "updatedAt", "analysisId", "analysis"],
         "type": "object",
         "properties": {
           "createdAt": {
@@ -577,6 +577,14 @@
           },
           "slug": {
             "type": "string"
+          },
+          "textContent": {
+            "type": "string",
+            "description": "The full text of the generated content."
+          },
+          "jsonContent": {
+            "type": "object",
+            "description": "The json object of the generated content."
           },
           "metadata": {
             "$ref": "#/components/schemas/Metadata"
