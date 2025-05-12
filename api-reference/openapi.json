@@ -434,6 +434,10 @@
             "minimum": 0,
             "maximum": 2,
             "description": "Sampling temperature (range: [0, 2])."
+          },
+          "responseFormat": {
+            "type": "object",
+            "description": "To use structured outputs, include a response_format parameter in your request, with type set to json_schema and the json_schema object containing your schema"
           }
         }
       },
@@ -467,6 +471,10 @@
             "minimum": 0,
             "maximum": 2,
             "description": "Sampling temperature (range: [0, 2])."
+          },
+          "responseFormat": {
+            "type": "object",
+            "description": "To use structured outputs, include a response_format parameter in your request, with type set to json_schema and the json_schema object containing your schema"
           }
         }
       },
