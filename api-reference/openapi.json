@@ -183,7 +183,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null.",
               "examples": ["{\"key\":\"value\"}"]
             }
           },
@@ -193,7 +193,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+              "description": "User defined json schema.",
               "examples": ["{\"key\":\"value\"}"]
             }
           }
@@ -329,7 +329,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null.",
               "examples": ["{\"key\":\"value\"}"]
             }
           },
@@ -371,6 +371,16 @@
         "summary": "Count analyses",
         "operationId": "count-analyses",
         "parameters": [
+          {
+            "name": "jsonContent",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "User defined json schema.",
+              "examples": ["{\"key\":\"value\"}"]
+            }
+          },
           {
             "name": "metadata",
             "in": "query",
