@@ -284,6 +284,14 @@
         "operationId": "list-related-analyses",
         "parameters": [
           {
+            "name": "analysisId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "pageNum",
             "in": "query",
             "required": false,
@@ -304,7 +312,19 @@
             }
           },
           {
-            "name": "metadata",
+            "name": "selectFields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Comma separated list of fields to select",
+              "examples": [
+                "analysisId,createdAt,updatedAt,analysis,textContent,jsonContent"
+              ]
+            }
+          },
+          {
+            "name": "jsonContent",
             "in": "query",
             "required": false,
             "schema": {
@@ -314,11 +334,13 @@
             }
           },
           {
-            "name": "analysisId",
+            "name": "metadata",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "description": "User defined key-value pair where the key is a string, and the value can be a string, number, boolean, or null",
+              "examples": ["{\"key\":\"value\"}"]
             }
           }
         ],
