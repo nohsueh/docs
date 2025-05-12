@@ -575,9 +575,6 @@
           "analysis": {
             "$ref": "#/components/schemas/AnalyzeAnalysisObject"
           },
-          "slug": {
-            "type": "string"
-          },
           "textContent": {
             "type": "string",
             "description": "The full text of the generated content."
